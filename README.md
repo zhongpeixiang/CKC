@@ -3,6 +3,8 @@
 
 `Keyword-Guided Neural Conversational Model`
 
+The paper is available [here](https://arxiv.org/abs/2012.08383)
+
 This repo is mainly adapted from https://github.com/squareRoot3/Target-Guided-Conversation.
 
 ### Datasets
