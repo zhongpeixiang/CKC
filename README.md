@@ -11,6 +11,12 @@ This repo is mainly adapted from https://github.com/squareRoot3/Target-Guided-Co
 - ConvAI2: https://www.dropbox.com/s/1fw2gwpuyud2bkq/convai2.zip?dl=0
 - Reddit/Casual: https://www.dropbox.com/s/hhesm3z6judpsxa/casual.zip?dl=0
 
+### Preprocessing
+- Preprocess conversations and build word vocabulary.
+- Use TF-IDF-based keyword extraction techniques to extract keywords from each utterance.
+- Build the keyword vocabulary.
+- Based on the word and keyword vocabularies, preprocess conceptnet and build the concept vocabulary.
+
 ### Steps:
 1. Download the datasets.
 2. Run `python train_keyword_prediction.py --config ./configs/keyword_prediction_config.json` to train a keyword prediction model.
