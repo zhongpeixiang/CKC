@@ -17,6 +17,7 @@
     "utterance_encoder": "HierGRU",
     "use_last_k_utterances": 2,
     "use_CN_hopk_graph": 1,
+    "use_utterance_concepts": 0,
     "concept_encoder": "mean",
     "combine_node_emb": "max",
     "embed_size": 200,
