@@ -30,7 +30,7 @@ class KW_GNN(torch.nn.Module):
         self.combine_node_emb = combine_node_emb
         self.num_nodes = nodeid2wordid.shape[0]
         
-        self.embedding = nn.Embedding(keyword_vocab_size, embed_size)
+        self.embedding = nn.Embedding(vocab_size, embed_size)
         
         # GNN learning
         if gnn == "GatedGraphConv":
@@ -168,7 +168,6 @@ class CoGraphMatcher(nn.Module):
         self.n_heads = n_heads
         self.gnn = gnn
         self.encoder = encoder
-        self.matching = matching
         self.aggregation = aggregation
         self.use_keywords = use_keywords
         self.keyword_score_weight = keyword_score_weight
@@ -427,8 +426,6 @@ class CoGraphMatcher(nn.Module):
             context_concept_out = context_concept_out.repeat_interleave(num_candidates, dim=0) # (batch*num_candidates, m, emb)
             context_concept_mask = context_concept_mask.repeat_interleave(num_candidates, dim=0) # (batch*num_candidates, m, emb)
 
-            context_concept_out, candidate_concept_out = self.match(context_concept_out, context_concept_mask, candidate_concept_out, candidate_concept_mask)
-
             # aggregation
             context_concept_out = self.aggregate(context_concept_out, context_concept_mask) # (batch*num_candidates, emb)
             candidate_concept_out = self.aggregate(candidate_concept_out, candidate_concept_mask) # (batch*num_candidates, emb)
@@ -456,9 +453,7 @@ class CoGraphMatcher(nn.Module):
         context_mask = context_mask.repeat_interleave(num_candidates, dim=0) # (batch*num_candidates, n, emb)
 
         # combine
-        if CN_hopk_edge_index is not None:
-            context_out, candidate_out = self.match(context_out, context_mask, candidate_out, candidate_mask)
-        
+        if CN_hopk_edge_index is not None:        
             # aggregation
             context_out = self.aggregate(context_out, context_mask) # (batch*num_candidates, emb)
             candidate_out = self.aggregate(candidate_out, candidate_mask) # (batch*num_candidates, emb)
