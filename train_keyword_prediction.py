@@ -276,7 +276,7 @@ def main(config, progress):
     cprint("vocab size: ", vocab_size)
     cprint("keyword vocab size: ", keyword_vocab_size)
     
-    CN_hopk_edge_index, CN_hopk_edge_weight, CN_hopk_nodeid2wordid, keywordid2nodeid, node2id = None, None, None, None, None
+    CN_hopk_edge_index, CN_hopk_nodeid2wordid, keywordid2nodeid, node2id = None, None, None, None
     keyword_mask_matrix = None
     if use_CN_hopk_graph > 0:
         cprint("Loading CN_hopk edge index...")
@@ -350,7 +350,6 @@ def main(config, progress):
             "utterance_encoder": utterance_encoder,
             "keywordid2wordid": keywordid2wordid,
             "keyword_mask_matrix": keyword_mask_matrix,
-            "CN_hopk_edge_weight": CN_hopk_edge_weight,
             "nodeid2wordid": CN_hopk_nodeid2wordid,
             "keywordid2nodeid": keywordid2nodeid,
             "concept_encoder": concept_encoder,
