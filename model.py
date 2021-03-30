@@ -114,7 +114,7 @@ class KW_GNN(torch.nn.Module):
         CN_hopk_out = None
         if CN_hopk_edge_index is not None:
             node_emb = self.forward_concept(emb, self.nodeid2wordid)
-            CN_hopk_out, attn = self.forward_gnn(node_emb, CN_hopk_edge_index)
+            CN_hopk_out = self.forward_gnn(node_emb, CN_hopk_edge_index)
 
         # aggregation
         if CN_hopk_edge_index is not None:
