@@ -20,7 +20,7 @@
     "aggregation": "max",
     "combine_word_concepts": "max",
     "use_keywords": 1,
-    "keyword_score_weight": 0,
+    "keyword_score_weight": 0.01,
     "keyword_encoder": "mean",
     "embed_size": 200,
     "use_pretrained_word_embedding": 1,
