@@ -13,7 +13,7 @@ This repo is mainly adapted from https://github.com/squareRoot3/Target-Guided-Co
 
 ### Preprocessing
 - Preprocess conversations and build word vocabulary.
-- Use TF-IDF-based keyword extraction techniques to extract keywords from each utterance.
+- Use TF-IDF-based keyword extraction techniques (based on [here](https://github.com/squareRoot3/Target-Guided-Conversation)) to extract keywords from each utterance.
 - Build the keyword vocabulary.
 - Based on the word and keyword vocabularies, preprocess conceptnet and build the concept vocabulary.
 
